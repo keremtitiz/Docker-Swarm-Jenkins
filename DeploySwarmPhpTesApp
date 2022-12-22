@@ -1,0 +1,6 @@
+ssh -o StrictHostKeyChecking=no test@${serverip} 'rm -rf php-test-app'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'git clone "https://github.com/keremtitiz/php-test-app.git"'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker build -t php-test-app ./php-test-app/'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker service create --replicas 6 --name php-swarm-test-app -p 8080:80 php-test-app'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker node ls'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker service ls'
