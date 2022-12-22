@@ -1,0 +1,3 @@
+ssh -o StrictHostKeyChecking=no test@${serverip} 'sudo systemctl restart docker'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'sudo docker swarm init --advertise-addr '${serverip}
+ssh -o StrictHostKeyChecking=no test@${serverip} 'sudo docker info'
