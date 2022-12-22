@@ -1,0 +1,17 @@
+### Jenkins Pipeline
+
+node {
+    def serverip
+        stage('DockerSwarmNode00') {
+                echo 'DeployDockerToServer'
+                build job: 'DeployDockerToServer', parameters: [string(name: 'serverip', value: params.MasterNode00IP)]
+        }
+        stage('DockerSwarmNode01') {
+                echo 'DeployDockerToServer'
+                build job: 'DeployDockerToServer', parameters: [string(name: 'serverip', value: params.WorkerNode01IP)]
+        }
+        stage('DockerSwarmNode02') {
+                echo 'DeployDockerToServer'
+                build job: 'DeployDockerToServer', parameters: [string(name: 'serverip', value: params.WorkerNode02IP)]
+        }
+}
