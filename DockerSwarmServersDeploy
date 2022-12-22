@@ -1,0 +1,17 @@
+###Jenkins Pipeline
+
+node {
+    def servername
+        stage('DockerSwarmNode00') {
+                echo 'DeployDebianServer'
+                build job: 'DeployDebianServer', parameters: [string(name: 'servername', value: 'DockerSwarmNode00')]
+        }
+        stage('DockerSwarmNode01') {
+                echo 'DeployDebianServer'
+                build job: 'DeployDebianServer', parameters: [string(name: 'servername', value: 'DockerSwarmNode01')]
+        }
+        stage('DockerSwarmNode02') {
+                echo 'DeployDebianServer'
+                build job: 'DeployDebianServer', parameters: [string(name: 'servername', value: 'DockerSwarmNode02')]
+        }
+}
