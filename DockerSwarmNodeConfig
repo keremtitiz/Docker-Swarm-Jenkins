@@ -1,0 +1,2 @@
+ssh -o StrictHostKeyChecking=no test@${Node01ip} 'docker swarm join --token '${Token}
+ssh -o StrictHostKeyChecking=no test@${Node02ip} 'docker swarm join --token '${Token}
